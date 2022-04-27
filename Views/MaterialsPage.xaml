@@ -1,0 +1,146 @@
+﻿<Page x:Class="Clothes.Views.MaterialsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Clothes.Views"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список материалов">
+
+    <Grid>
+
+        <!-- Разделение страницы на секции-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <!--Текст для вывода результата поиска-->
+        <TextBlock Text="50/237"
+                   FontSize="16"
+                   Grid.Row="0"
+                   VerticalAlignment="Center"
+                   Margin="10 0 0 0 "/>
+
+        <!-- Верхняя панель, в которой элементы поиска и вывод кол-ва результата -->
+        <StackPanel Orientation="Horizontal"
+                    Height="30"
+                    HorizontalAlignment="Center">
+            
+            <!--Поле для ввода поиска-->
+            <TextBox Width="300"
+                     FontSize="16"
+                     TextChanged="TxbSearch_TextChanged"
+                     Name="TxbSearch"/>
+            
+            <!--Сортировка-->
+            <ComboBox SelectionChanged="CmbSort_SelectionChanged"
+                      Margin="5 0"
+                      Name="CmbSort"
+                      Width="150">
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+            
+            <!--Фильтрация-->
+            <ComboBox SelectionChanged="CmbFilter_SelectionChanged"
+                      Width="150"
+                      Name="CmbFilter">
+                <ComboBoxItem Content="Все типы"/>
+                <ComboBoxItem Content="Наименование"/>
+                <ComboBoxItem Content="Остаток на складе"/>
+                <ComboBoxItem Content="Стоимость"/>
+            </ComboBox>
+            
+        </StackPanel>
+
+        <ListView
+            x:Name="MaterialList"
+            Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="150"
+                               Width="150"
+                               Source="{Binding Image}"/>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding MaterilType.Title}"/>
+                                <Label Content=" | "/>
+                                <Label Content="{Binding Title}"/>
+                            </StackPanel>
+                            <Label Content="{Binding MinCount}" ContentStringFormat="Минимальное количество на складе: {0}"/>
+                            <Label Content="{Binding Supplier}" ContentStringFormat="Поставщики: {0}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!--Вывод всех материалов по шаблону-->
+        <!--<ListView x:Name="MaterialList"
+                  Visibility="Collapsed"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal"
+                                Background="{Binding BackColor}">
+                        <Image Height="150"
+                               Width="150"
+                               Source="{Binding Image}"/>
+                        <StackPanel>
+                            <StackPanel>
+                                <Label Content="{Binding MaterialType.Title}"/>
+                                <Label Content=" | "/>
+                                <Label Content="{Binding Title}"/>
+                            </StackPanel>
+                            <Label Content="{Binding MinCount}" ContentStringFormat="Минимальное количество на складе: {0}"/>
+                            <Label Content="{Binding Supplier}" ContentStringFormat="Поставщики: {0}"/>
+                            
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>"
+        </ListView>-->
+
+
+        <!--Нижняя панель, в которую выводится количество страниц-->
+        <StackPanel VerticalAlignment="Center"
+                    Grid.Row="2">
+
+            <!-- Кнопка для изменения значения всех выделенных эл-ов -->
+            <Button Width="200"
+                    x:Name="ChangeAllCounts_Btn"
+                    Visibility="Collapsed"
+                    Content="Изменить мин кол-во"
+                    HorizontalAlignment="Left"
+                    Height="20"
+                    Margin="10 0 0 -28"/>
+            
+            <!--Вывод кол-ва страниц-->
+            <StackPanel x:Name="PagesPanel"
+                        Orientation="Horizontal"
+                        Margin="10 0"
+                        HorizontalAlignment="Right">
+                <Label Content="&lt;"/>
+                <Button BorderThickness="0" Background="Transparent">
+                    <TextBlock Text="1" Margin="5 0" TextDecorations="Underline"/>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0">
+                    <TextBlock Text="2" Margin="5 0"/>
+                </Button>   
+                <Button Background="Transparent" BorderThickness="0">
+                    <TextBlock Text="3" Margin="5 0"/>
+                </Button>   
+                <Button Background="Transparent" BorderThickness="0">
+                    <TextBlock Text="4" Margin="5 0"/>
+                </Button>   
+                <Label Content=">"/>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Page>

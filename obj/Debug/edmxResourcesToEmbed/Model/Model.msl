@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ClothesBaseModelContainer" CdmEntityContainer="ClothesBaseEntities">
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="ClothesBaseModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CountOnStorage" ColumnName="CountOnStorage" />
+          <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+          <ScalarProperty Name="CountInPocket" ColumnName="CountInPocket" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialSupplier">
+      <EntityTypeMapping TypeName="ClothesBaseModel.MaterialSupplier">
+        <MappingFragment StoreEntitySet="MaterialSupplier">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterilType">
+      <EntityTypeMapping TypeName="ClothesBaseModel.MaterilType">
+        <MappingFragment StoreEntitySet="MaterilType">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="ClothesBaseModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierType">
+      <EntityTypeMapping TypeName="ClothesBaseModel.SupplierType">
+        <MappingFragment StoreEntitySet="SupplierType">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="ClothesBaseModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
