@@ -62,5 +62,20 @@ namespace Clothes.Views
             SecondTxb.TextDecorations = TextDecorations.Underline;
 
         }
+
+
+        // При выделении нескольких эл-ов появляется кнопка редактировать все
+        private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MaterialList.SelectedItems.Count > 1)
+            {
+                ChangeAllValue_Btn.Visibility = Visibility.Visible;
+            }
+            else if (MaterialList.SelectedItems.Count == 1)
+            {
+                ChangeAllValue_Btn.Visibility = Visibility.Collapsed;
+
+            }
+        }
     }
 }

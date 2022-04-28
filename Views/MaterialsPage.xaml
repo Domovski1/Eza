@@ -62,6 +62,7 @@
         
         <!--Вывод всех материалов по шаблону-->
         <ListView
+            SelectionChanged="MaterialList_SelectionChanged"
             x:Name="MaterialList"
             Grid.Row="1">
             <ListView.ItemTemplate>
@@ -92,7 +93,7 @@
 
             <!-- Кнопка для изменения значения всех выделенных эл-ов -->
             <Button Width="200"
-                    x:Name="ChangeAllCounts_Btn"
+                    x:Name="ChangeAllValue_Btn"
                     Visibility="Collapsed"
                     Content="Изменить мин кол-во"
                     HorizontalAlignment="Left"
