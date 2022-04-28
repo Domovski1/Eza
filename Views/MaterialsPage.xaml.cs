@@ -26,11 +26,13 @@ namespace Clothes.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CmbFilter.SelectedIndex = 0;
-
-
+            CmbSort.SelectedIndex = 0;
 
             // Вывод данных из БД должен быть тут
-            MaterialList.ItemsSource = App.db.Material.ToList();
+            MaterialList.ItemsSource = App.db.Material.Take(15).ToList();
+
+
+            ResultTxb.Text = MaterialList.Items.Count + "/" + App.db.Material.Count().ToString();
             ;
         }
 
@@ -45,6 +47,19 @@ namespace Clothes.Views
 
         private void CmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        void SortandFilter()
+        {
+
+        }
+
+        private void ThirtyMaterials_Click(object sender, RoutedEventArgs e)
+        {
+            MaterialList.ItemsSource = App.db.Material.Where(x => x.Code > 15).Take(15).ToList();
+            FirstTxb.TextDecorations = null;
+            SecondTxb.TextDecorations = TextDecorations.Underline;
 
         }
     }

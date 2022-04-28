@@ -20,6 +20,7 @@
 
         <!--Текст для вывода результата поиска-->
         <TextBlock Text="50/237"
+                   Name="ResultTxb"
                    FontSize="16"
                    Grid.Row="0"
                    VerticalAlignment="Center"
@@ -57,6 +58,9 @@
             
         </StackPanel>
 
+        
+        
+        <!--Вывод всех материалов по шаблону-->
         <ListView
             x:Name="MaterialList"
             Grid.Row="1">
@@ -80,31 +84,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <!--Вывод всех материалов по шаблону-->
-        <!--<ListView x:Name="MaterialList"
-                  Visibility="Collapsed"
-                  Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal"
-                                Background="{Binding BackColor}">
-                        <Image Height="150"
-                               Width="150"
-                               Source="{Binding Image}"/>
-                        <StackPanel>
-                            <StackPanel>
-                                <Label Content="{Binding MaterialType.Title}"/>
-                                <Label Content=" | "/>
-                                <Label Content="{Binding Title}"/>
-                            </StackPanel>
-                            <Label Content="{Binding MinCount}" ContentStringFormat="Минимальное количество на складе: {0}"/>
-                            <Label Content="{Binding Supplier}" ContentStringFormat="Поставщики: {0}"/>
-                            
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>"
-        </ListView>-->
 
 
         <!--Нижняя панель, в которую выводится количество страниц-->
@@ -125,20 +104,27 @@
                         Orientation="Horizontal"
                         Margin="10 0"
                         HorizontalAlignment="Right">
+                
                 <Label Content="&lt;"/>
+
                 <Button BorderThickness="0" Background="Transparent">
-                    <TextBlock Text="1" Margin="5 0" TextDecorations="Underline"/>
+                    <TextBlock Text="1" Margin="5 0" TextDecorations="Underline" Name="FirstTxb"/>
                 </Button>
-                <Button Background="Transparent" BorderThickness="0">
-                    <TextBlock Text="2" Margin="5 0"/>
+
+                <Button Background="Transparent" BorderThickness="0" Click="ThirtyMaterials_Click">
+                    <TextBlock Text="2" Margin="5 0" Name="SecondTxb"/>
                 </Button>   
+                
                 <Button Background="Transparent" BorderThickness="0">
                     <TextBlock Text="3" Margin="5 0"/>
                 </Button>   
+                
                 <Button Background="Transparent" BorderThickness="0">
                     <TextBlock Text="4" Margin="5 0"/>
-                </Button>   
+                </Button>  
+                
                 <Label Content=">"/>
+                
             </StackPanel>
         </StackPanel>
         
