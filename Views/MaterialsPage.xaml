@@ -42,18 +42,19 @@
                       Margin="5 0"
                       Name="CmbSort"
                       Width="150">
-                <ComboBoxItem Content="По возрастанию"/>
-                <ComboBoxItem Content="По убыванию"/>
+                <ComboBoxItem Content="Все типы"/>
+                <ComboBoxItem Content="Наименование | По возрастанию"/>
+                <ComboBoxItem Content="Наименование | По убыванию"/>
+                <ComboBoxItem Content="Остаток на складе | По возрастанию"/>
+                <ComboBoxItem Content="Остаток на складе | По убыванию"/>
+                <ComboBoxItem Content="Стоимость | По возрастанию"/>
+                <ComboBoxItem Content="Стоимость | По убыванию"/>
             </ComboBox>
             
             <!--Фильтрация-->
             <ComboBox SelectionChanged="CmbFilter_SelectionChanged"
                       Width="150"
                       Name="CmbFilter">
-                <ComboBoxItem Content="Все типы"/>
-                <ComboBoxItem Content="Наименование"/>
-                <ComboBoxItem Content="Остаток на складе"/>
-                <ComboBoxItem Content="Стоимость"/>
             </ComboBox>
             
         </StackPanel>
